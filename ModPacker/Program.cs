@@ -19,7 +19,7 @@ namespace ModPacker
             {
                 for (int i = 0; i < args.Length; i++)
                 {
-                    if (args[i].ToLower().Equals("-p")) path = args[i + 1];
+                    if (args[i].ToLower().Equals("-p")) path = Path.GetFullPath(args[i + 1]);
                     if (args[i].ToLower().Equals("-mc")) minecraft_version = args[i + 1];
                     if (args[i].ToLower().Equals("-shell")) ram = int.Parse(args[i + 1]);
                     if (args[i].ToLower().Equals("?"))
@@ -43,7 +43,7 @@ namespace ModPacker
             if (string.IsNullOrWhiteSpace(path))
             {
                 Console.Write("PATH: ");
-                path = Console.ReadLine();
+                path = Path.GetFullPath(Console.ReadLine());
             }
             if (string.IsNullOrWhiteSpace(minecraft_version))
             {
